@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hafiz | Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .bento-card { @apply bg-slate-800/50 border border-slate-700 backdrop-blur-md rounded-3xl p-6 transition-all hover:border-violet-500/50 hover:shadow-[0_0_30px_-10px_rgba(139,92,246,0.3)]; }
+        
+        /* Swiper Custom Styling */
+        .swiper { width: 100%; height: 100%; border-radius: 1.5rem; }
+        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
+        .swiper-pagination-bullet { background: #475569 !important; }
+        .swiper-pagination-bullet-active { background: #8b5cf6 !important; }
+    </style>
+</head>
+<body class="bg-[#020617] text-slate-100 overflow-x-hidden">
+
+    <nav class="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-lg border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <span class="text-xl font-extrabold tracking-tighter bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent italic">H.</span>
+        <div class="space-x-8 text-sm font-medium text-slate-400">
+            <a href="index.html" class="hover:text-white transition">Home</a>
+            <a href="experience.html" class="hover:text-white transition text-violet-400">Experience</a>
+            <a href="index.html#projects" class="hover:text-white transition">Projects</a>
+            <a href="#skills" class="hover:text-white transition">Skills</a>
+        </div>
+    </div>
+</nav>
+
+    <section id="about" class="pt-32 pb-20 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
+                    Crafting <span class="text-violet-500 underline decoration-cyan-500/30">Code</span> & <br>Building Experiences.
+                </h1>
+                <p class="text-slate-400 text-lg leading-relaxed mb-10">
+                    Halo, saya <span class="text-white font-semibold">Hafiz</span>. Seorang Developer yang antusias dengan ekosistem Roblox, Web Development, dan Network Administration. Fokus pada pembuatan solusi digital yang efisien dan estetik.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#contact" class="px-6 py-3 bg-violet-600 hover:bg-violet-700 rounded-full font-bold transition">Hire Me</a>
+                    <a href="/assets/cv-hafiz.pdf" class="px-6 py-3 border border-slate-700 hover:bg-slate-800 rounded-full font-bold transition">Download CV</a>
+                </div>
+            </div>
+
+            <div class="bento-card !p-2 aspect-square md:aspect-video overflow-hidden">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide relative">
+                            <img src="assets/images/lagingoding.jpeg" alt="Activity 1">
+                            <div class="absolute bottom-0 p-4 w-full bg-gradient-to-t from-black/80 to-transparent text-sm">Coding Session</div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="assets/images/robloxstudio.png" alt="Activity 2">
+                            <div class="absolute bottom-0 p-4 w-full bg-gradient-to-t from-black/80 to-transparent text-sm">Roblox Studio Development</div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="assets/images/landingpagehemoscan.png" alt="Activity 3">
+                            <div class="absolute bottom-0 p-4 w-full bg-gradient-to-t from-black/80 to-transparent text-sm">Pengembangan Hemo Scan</div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="activities" class="py-20 px-6 bg-slate-900/10">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-10">Recent Activities & Project Photos</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bento-card !p-0 overflow-hidden h-48 md:h-64 group">
+                    <img src="assets/images/IMG_5515.JPG.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Work 1">
+                </div>
+                <div class="bento-card !p-0 overflow-hidden h-48 md:h-64 group relative">
+                    <img src="assets/images/2.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Work 2">
+                    <div class="absolute inset-0 bg-violet-600/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center font-bold">IT Specta Design</div>
+                </div>
+                <div class="bento-card !p-0 overflow-hidden h-48 md:h-64 group">
+                    <img src="assets/images/kereta.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Work 3">
+                </div>
+                <div class="bento-card !p-0 overflow-hidden h-48 md:h-64 group">
+                    <img src="assets/images/dopfilm.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Work 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 bg-slate-900/30">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-10">Tech Stack & Tools</h2>
+            <div class="flex flex-wrap justify-center gap-8 opacity-70">
+                <div class="flex flex-col items-center gap-2"><span class="font-bold text-xl">Node.js</span><div class="h-1 w-full bg-green-500"></div></div>
+                <div class="flex flex-col items-center gap-2"><span class="font-bold text-xl">SQL Server</span><div class="h-1 w-full bg-blue-500"></div></div>
+                <div class="flex flex-col items-center gap-2"><span class="font-bold text-xl">Python</span><div class="h-1 w-full bg-yellow-500"></div></div>
+                <div class="flex flex-col items-center gap-2"><span class="font-bold text-xl">Cisco</span><div class="h-1 w-full bg-cyan-500"></div></div>
+                <div class="flex flex-col items-center gap-2"><span class="font-bold text-xl">Roblox Studio</span><div class="h-1 w-full bg-red-500"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+            <div>
+                <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center text-violet-500 text-sm">01</span> Education
+                </h3>
+                <div class="space-y-6 border-l-2 border-slate-800 ml-4 pl-8 relative">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-violet-500"></div>
+                    <h4 class="font-bold text-white text-lg">Informatics Student</h4>
+                    <p class="text-slate-400 text-sm">2024 - Present</p>
+                    <p class="text-slate-500 mt-2 text-sm">Fokus pada algoritma, Database Management (CRUD), dan Network Engineering.</p>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-500 text-sm">02</span> Experience
+                </h3>
+                <div class="space-y-6 border-l-2 border-slate-800 ml-4 pl-8 relative">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-cyan-500"></div>
+                    <h4 class="font-bold text-white text-lg">Event Organizer - IT Specta 2026</h4>
+                    <p class="text-slate-400 text-sm">March 2026</p>
+                    <p class="text-slate-500 mt-2 text-sm leading-relaxed">• Mendesain mascot resmi & merchandise.<br>• Koordinasi teknis & multimedia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 px-6 bg-slate-950">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center md:text-left">Featured Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bento-card group">
+                    <div class="h-64 rounded-2xl bg-gradient-to-br from-red-500/20 to-slate-800 mb-6 overflow-hidden">
+                        <img src="assets/images/landingpagehemoscan.png" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition duration-500" alt="Hemo Scan">
+                    </div>
+                    <h3 class="text-2xl font-bold text-white uppercase tracking-tight">HEMO SCAN</h3>
+                    <p class="text-slate-400 mt-3 text-sm mb-4 leading-relaxed">Sistem monitoring stok darah real-time dengan SQL Server & Flask.</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-slate-900 border border-slate-700 rounded-md text-[10px] font-bold text-violet-400">FLASK</span>
+                        <span class="px-3 py-1 bg-slate-900 border border-slate-700 rounded-md text-[10px] font-bold text-cyan-400">SQL SERVER</span>
+                    </div>
+                </div>
+                <div class="bento-card group">
+                    <div class="h-64 rounded-2xl bg-gradient-to-br from-blue-500/20 to-slate-800 mb-6 overflow-hidden">
+                        <img src="assets/images/networking.jpg" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition duration-500" alt="Networking">
+                    </div>
+                    <h3 class="text-2xl font-bold text-white uppercase tracking-tight">Network Administration</h3>
+                    <p class="text-slate-400 mt-3 text-sm mb-4 leading-relaxed">Konfigurasi VLAN & Router-on-a-stick Cisco Packet Tracer.</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-slate-900 border border-slate-700 rounded-md text-[10px] font-bold text-blue-400">CISCO</span>
+                        <span class="px-3 py-1 bg-slate-900 border border-slate-700 rounded-md text-[10px] font-bold text-emerald-400">VLAN</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="py-24 px-6 border-t border-slate-900 bg-[#020617]">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 italic tracking-tight">
+                Code that speaks. Designs that <span class="text-violet-500 font-normal">feel.</span>
+            </h2>
+            <p class="text-slate-400 mb-12 max-w-md mx-auto">
+                Tertarik untuk kolaborasi atau sekadar diskusi soal IT? Hubungi saya melalui platform di bawah ini.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-8 md:gap-12">
+                <a href="https://www.linkedin.com/in/hafiz-kurniawan-604791370/" target="_blank" 
+                   class="group flex items-center gap-3 text-slate-400 hover:text-blue-400 transition-all duration-300">
+                    <div class="p-3 rounded-2xl bg-slate-900 border border-slate-800 group-hover:border-blue-500/50 group-hover:shadow-[0_0_20px_-5px_rgba(59,130,246,0.5)]">
+                        <i data-lucide="linkedin" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold tracking-wide">LinkedIn</span>
+                </a>
+
+                <a href="https://www.instagram.com/hafizzkrnwn" target="_blank" 
+                   class="group flex items-center gap-3 text-slate-400 hover:text-pink-500 transition-all duration-300">
+                    <div class="p-3 rounded-2xl bg-slate-900 border border-slate-800 group-hover:border-pink-500/50 group-hover:shadow-[0_0_20px_-5px_rgba(236,72,153,0.5)]">
+                        <i data-lucide="instagram" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold tracking-wide">Instagram</span>
+                </a>
+
+                <a href="https://github.com/wpiskaa" target="_blank" 
+                   class="group flex items-center gap-3 text-slate-400 hover:text-white transition-all duration-300">
+                    <div class="p-3 rounded-2xl bg-slate-900 border border-slate-800 group-hover:border-white/50 group-hover:shadow-[0_0_20px_-5px_rgba(255,255,255,0.2)]">
+                        <i data-lucide="github" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold tracking-wide">GitHub</span>
+                </a>
+
+                <a href="mailto:hafizzkurniawan19@gmail.com" 
+                   class="group flex items-center gap-3 text-slate-400 hover:text-emerald-400 transition-all duration-300">
+                    <div class="p-3 rounded-2xl bg-slate-900 border border-slate-800 group-hover:border-emerald-500/50 group-hover:shadow-[0_0_20px_-5px_rgba(16,185,129,0.3)]">
+                        <i data-lucide="mail" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold tracking-wide">Email</span>
+                </a>
+            </div>
+
+            <div class="mt-24 pt-8 border-t border-slate-900/50">
+                <p class="text-slate-600 text-xs tracking-[0.3em] uppercase font-medium">
+                    © 2026 Hafiz • Built with Passion & Sukses Selalu
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // 1. Inisialisasi Icon Lucide (PENTING: Tanpa ini icon tidak muncul)
+        lucide.createIcons();
+
+        // 2. Inisialisasi Slider Swiper
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            pagination: { 
+                el: ".swiper-pagination", 
+                clickable: true 
+            },
+            autoplay: { 
+                delay: 3000, 
+                disableOnInteraction: false 
+            },
+        });
+    </script>
+</body>
+</html>

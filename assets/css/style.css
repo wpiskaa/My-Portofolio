@@ -1,0 +1,20 @@
+/* Custom Glow Effect */
+.bento-card:hover {
+    box-shadow: 0 0 40px -10px rgba(139, 92, 246, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Background Blur Animation */
+@keyframes pulse-slow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+.bg-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+    z-index: -1;
+    animation: pulse-slow 8s infinite;
+}
