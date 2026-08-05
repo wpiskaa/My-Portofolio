@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Hafiz Kurniawan | IT Developer</title>
+  <meta name="description" content="Portfolio profesional Hafiz Kurniawan, seorang IT Developer & UI/UX Designer lulusan Universitas Muhammadiyah Yogyakarta." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Space Grotesk = heading gagah & geometric | DM Sans = body clean tidak gepeng -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans:  ['DM Sans', 'sans-serif'],
+            grotesk: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            charcoal: {
+              950: '#0a0a0f',
+              900: '#0f0f18',
+              800: '#15151f',
+              700: '#1c1c2a',
+              600: '#242435',
+            },
+          },
+          keyframes: {
+            /* === ANTI-GRAVITY: perjalanan Y lebih besar & dramatis === */
+            'float-slow': {
+              '0%':   { transform: 'translateY(0px)   rotate(0deg)   scale(1)' },
+              '25%':  { transform: 'translateY(-38px) rotate(2deg)   scale(1.02)' },
+              '50%':  { transform: 'translateY(-20px) rotate(-1.5deg) scale(0.99)' },
+              '75%':  { transform: 'translateY(-44px) rotate(1deg)   scale(1.03)' },
+              '100%': { transform: 'translateY(0px)   rotate(0deg)   scale(1)' },
+            },
+            'float-reverse': {
+              '0%':   { transform: 'translateY(0px)  rotate(0deg) scale(1)' },
+              '30%':  { transform: 'translateY(32px) rotate(-2.5deg) scale(1.02)' },
+              '60%':  { transform: 'translateY(16px) rotate(1deg) scale(0.98)' },
+              '100%': { transform: 'translateY(0px)  rotate(0deg) scale(1)' },
+            },
+            'float-mid': {
+              '0%':   { transform: 'translateY(0px)   rotate(0deg)' },
+              '40%':  { transform: 'translateY(-28px) rotate(3deg)' },
+              '70%':  { transform: 'translateY(-12px) rotate(-2deg)' },
+              '100%': { transform: 'translateY(0px)   rotate(0deg)' },
+            },
+            'float-fast': {
+              '0%':   { transform: 'translateY(0px)' },
+              '45%':  { transform: 'translateY(-22px)' },
+              '100%': { transform: 'translateY(0px)' },
+            },
+            'float-x': {
+              '0%':   { transform: 'translateX(0px)   translateY(0px)' },
+              '33%':  { transform: 'translateX(-18px) translateY(-20px)' },
+              '66%':  { transform: 'translateX(14px)  translateY(-8px)' },
+              '100%': { transform: 'translateX(0px)   translateY(0px)' },
+            },
+            'orbit': {
+              '0%':   { transform: 'rotate(0deg)   translateX(90px) rotate(0deg)' },
+              '100%': { transform: 'rotate(360deg) translateX(90px) rotate(-360deg)' },
+            },
+            'orbit-rev': {
+              '0%':   { transform: 'rotate(0deg)   translateX(130px) rotate(0deg)' },
+              '100%': { transform: 'rotate(-360deg) translateX(130px) rotate(360deg)' },
+            },
+            'spin-slow': {
+              from: { transform: 'rotate(0deg)' },
+              to:   { transform: 'rotate(360deg)' },
+            },
+            'pulse-glow': {
+              '0%, 100%': { opacity: '0.55', transform: 'scale(1)' },
+              '50%':       { opacity: '1',    transform: 'scale(1.08)' },
+            },
+            'shimmer': {
+              '0%':   { backgroundPosition: '-200% center' },
+              '100%': { backgroundPosition: '200% center' },
+            },
+            'morph': {
+              '0%,100%': { borderRadius: '38% 62% 63% 37% / 41% 44% 56% 59%' },
+              '25%':     { borderRadius: '55% 45% 40% 60% / 60% 38% 62% 40%' },
+              '50%':     { borderRadius: '48% 52% 57% 43% / 50% 60% 40% 50%' },
+              '75%':     { borderRadius: '30% 70% 55% 45% / 47% 53% 47% 53%' },
+            },
+          },
+          animation: {
+            'float-slow':    'float-slow 8s ease-in-out infinite',
+            'float-reverse': 'float-reverse 10s ease-in-out infinite',
+            'float-mid':     'float-mid 11s ease-in-out infinite',
+            'float-fast':    'float-fast 5.5s ease-in-out infinite',
+            'float-x':       'float-x 13s ease-in-out infinite',
+            'orbit':         'orbit 12s linear infinite',
+            'orbit-rev':     'orbit-rev 18s linear infinite',
+            'spin-slow':     'spin-slow 20s linear infinite',
+            'pulse-glow':    'pulse-glow 3s ease-in-out infinite',
+            'shimmer':       'shimmer 3s linear infinite',
+            'morph':         'morph 10s ease-in-out infinite',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    * { box-sizing: border-box; }
+    html { background: #0a0a0f; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-optical-sizing: auto;
+      background: #0a0a0f;
+      color: #e2e8f0;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #0f0f18; }
+    ::-webkit-scrollbar-thumb { background: #7c3aed; border-radius: 99px; }
+
+    /* Gradient text */
+    .text-gradient {
+      background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 40%, #2dd4bf 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .text-gradient-shimmer {
+      background: linear-gradient(90deg, #a78bfa, #7c3aed, #2dd4bf, #7c3aed, #a78bfa);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
+
+    /* Glass */
+    .glass {
+      background: rgba(21, 21, 31, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(124, 58, 237, 0.15);
+    }
+    .glass-hover {
+      transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+    }
+    .glass-hover:hover {
+      border-color: rgba(124, 58, 237, 0.5);
+      box-shadow: 0 0 40px rgba(124, 58, 237, 0.2);
+      transform: translateY(-6px);
+    }
+
+    /* Noise overlay */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      pointer-events: none; z-index: 9999; opacity: 0.4;
+    }
+
+    /* Orb */
+    .orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(90px); pointer-events: none; will-change: transform;
+    }
+
+    /* Nav link */
+    .nav-link {
+      position: relative; color: #94a3b8;
+      transition: color 0.3s ease;
+      font-size: 0.875rem; letter-spacing: 0.05em; font-weight: 500;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: linear-gradient(90deg, #7c3aed, #2dd4bf);
+      border-radius: 2px; transition: width 0.3s ease;
+    }
+    .nav-link:hover { color: #e2e8f0; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Buttons */
+    .btn-primary {
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #7c3aed, #5b21b6);
+      color: #fff; font-weight: 600; letter-spacing: 0.03em;
+      padding: 0.85rem 2.2rem; border-radius: 50px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 24px rgba(124,58,237,0.4); cursor: pointer;
+      display: inline-block; text-decoration: none;
+    }
+    .btn-primary::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, #a78bfa, #7c3aed); opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 40px rgba(124,58,237,0.6); }
+    .btn-primary:hover::before { opacity: 1; }
+    .btn-primary span { position: relative; z-index: 1; }
+
+    .btn-outline {
+      color: #a78bfa; border: 1.5px solid rgba(124,58,237,0.5);
+      padding: 0.85rem 2.2rem; border-radius: 50px; font-weight: 600;
+      letter-spacing: 0.03em; transition: all 0.3s ease; cursor: pointer;
+      display: inline-block; text-decoration: none;
+    }
+    .btn-outline:hover {
+      background: rgba(124,58,237,0.12);
+      border-color: #7c3aed; transform: translateY(-3px);
+    }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(50px); }
+
+    /* Timeline */
+    .timeline-line {
+      position: absolute; left: 0; top: 0;
+      width: 2px; height: 100%;
+      background: linear-gradient(180deg, #7c3aed 0%, #2dd4bf 100%);
+    }
+
+    /* Skill bar */
+    .skill-bar-fill {
+      height: 6px; border-radius: 99px;
+      background: linear-gradient(90deg, #7c3aed, #2dd4bf);
+      position: relative; overflow: hidden;
+    }
+    .skill-bar-fill::after {
+      content: ''; position: absolute; top: 0; left: -100%;
+      width: 50%; height: 100%; background: rgba(255,255,255,0.3);
+      animation: shimmer 2s linear infinite;
+    }
+
+    /* Bento card */
+    .bento-card {
+      transition: transform 0.4s cubic-bezier(.25,.8,.25,1), box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+    .bento-card:hover {
+      transform: scale(1.025) translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 40px rgba(124,58,237,0.2);
+    }
+
+    /* Mobile nav */
+    #mobile-menu { transition: all 0.4s cubic-bezier(.25,.8,.25,1); }
+    #mobile-menu.closed { opacity: 0; transform: translateY(-20px); pointer-events: none; max-height: 0; overflow: hidden; }
+    #mobile-menu.open   { opacity: 1; transform: translateY(0); pointer-events: auto; max-height: 500px; }
+
+    /* Custom cursor */
+    @media (hover: hover) {
+      body { cursor: none; }
+      #cursor {
+        position: fixed; width: 12px; height: 12px;
+        background: #7c3aed; border-radius: 50%;
+        pointer-events: none; z-index: 10000;
+        transition: transform 0.15s ease; mix-blend-mode: screen;
+      }
+      #cursor-ring {
+        position: fixed; width: 36px; height: 36px;
+        border: 1.5px solid rgba(124,58,237,0.6); border-radius: 50%;
+        pointer-events: none; z-index: 9999;
+        transition: transform 0.4s ease, width 0.3s ease, height 0.3s ease;
+      }
+    }
+
+    /* Section label */
+    .section-label {
+      font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: #7c3aed; font-weight: 700;
+    }
+
+    /* Heading font utility */
+    .font-grotesk { font-family: 'Space Grotesk', sans-serif; }
+
+    /* Anti-gravity floating particles (hero) */
+    .hero-particle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    /* Tag chip */
+    .tag {
+      display: inline-block; padding: 0.25rem 0.75rem; border-radius: 50px;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
+      background: rgba(124,58,237,0.15); color: #a78bfa;
+      border: 1px solid rgba(124,58,237,0.25);
+    }
+
+    /* Grid pattern */
+    .grid-pattern {
+      background-image: linear-gradient(rgba(124,58,237,0.5) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(124,58,237,0.5) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Counter stat */
+    .stat-val {
+      background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 40%, #2dd4bf 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    /* ── FONT UTILITIES (CSS-side, lebih reliable dari Tailwind CDN config) ── */
+    .font-grotesk,
+    .font-grotesk * {
+      font-family: 'Space Grotesk', system-ui, sans-serif !important;
+    }
+    h1, h2, h3, .heading {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-optical-sizing: auto;
+    }
+    /* Semua heading section otomatis Space Grotesk */
+    section h2, nav .logo-text {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-charcoal-950" style="font-family:'DM Sans',sans-serif;">
+
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!--                NAVIGATION               -->
+  <!-- ═══════════════════════════════════════ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="font-grotesk font-bold text-xl tracking-tight" style="text-decoration:none;">
+        <span class="text-gradient">HK</span><span class="text-slate-400 font-light">.</span>
+      </a>
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#about"    class="nav-link">Tentang</a>
+        <a href="#projects" class="nav-link">Proyek</a>
+        <a href="#skills"   class="nav-link">Keahlian</a>
+        <a href="#contact"  class="nav-link">Kontak</a>
+      </div>
+      <a href="#contact" class="hidden md:inline-block btn-primary text-sm"><span>Hubungi Saya</span></a>
+      <!-- Hamburger -->
+      <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
+        <span class="w-6 h-0.5 bg-slate-300 block transition-all duration-300" id="bar1"></span>
+        <span class="w-4 h-0.5 bg-slate-300 block transition-all duration-300 ml-auto" id="bar2"></span>
+        <span class="w-6 h-0.5 bg-slate-300 block transition-all duration-300" id="bar3"></span>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="closed md:hidden glass mx-4 mb-4 rounded-2xl">
+      <div class="flex flex-col p-6 gap-5">
+        <a href="#about"    class="nav-link text-base" onclick="closeMenu()">Tentang</a>
+        <a href="#projects" class="nav-link text-base" onclick="closeMenu()">Proyek</a>
+        <a href="#skills"   class="nav-link text-base" onclick="closeMenu()">Keahlian</a>
+        <a href="#contact"  class="nav-link text-base" onclick="closeMenu()">Kontak</a>
+        <a href="#contact"  class="btn-primary text-center text-sm mt-1" onclick="closeMenu()"><span>Hubungi Saya</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!--               HERO SECTION              -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
+
+    <!-- BG Orbs -->
+    <div class="orb w-96 h-96 opacity-20 top-10 -left-32 animate-float-slow"   style="background:#7c3aed;"></div>
+    <div class="orb w-80 h-80 opacity-15 bottom-20 right-10 animate-float-reverse" style="background:#2dd4bf;"></div>
+    <div class="orb w-64 h-64 opacity-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" style="background:#7c3aed;"></div>
+
+    <!-- Grid pattern -->
+    <div class="absolute inset-0 opacity-5 grid-pattern"></div>
+
+    <!-- ══ ANTI-GRAVITY FLOATING UNIVERSE (desktop) ══ -->
+    <div class="absolute right-4 lg:right-12 top-1/2 -translate-y-1/2 w-[340px] h-[340px] lg:w-[500px] lg:h-[500px] hidden md:flex items-center justify-center pointer-events-none" id="hero-float-wrap">
+
+      <!-- Spinning rings — visibility ditingkatkan -->
+      <div class="absolute inset-0 rounded-full"    style="border: 1px solid rgba(124,58,237,0.35); animation: spin-slow 20s linear infinite;"></div>
+      <div class="absolute inset-6 rounded-full"    style="border: 1px solid rgba(45,212,191,0.25); animation: spin-slow 14s linear infinite reverse;"></div>
+      <div class="absolute inset-14 rounded-full"   style="border: 1px dashed rgba(124,58,237,0.2); animation: spin-slow 30s linear infinite;"></div>
+      <!-- Extra ring besar -->
+      <div class="absolute -inset-6 rounded-full"   style="border: 1px solid rgba(167,139,250,0.12); animation: spin-slow 40s linear infinite reverse;"></div>
+
+      <!-- ── MAIN BLOB — float dramatis ── -->
+      <div class="animate-float-slow relative flex items-center justify-center" style="will-change:transform;">
+        <!-- Blob utama -->
+        <div class="w-56 h-56 lg:w-80 lg:h-80 animate-morph"
+             style="background: linear-gradient(135deg, rgba(124,58,237,0.9) 0%, rgba(99,102,241,0.7) 50%, rgba(45,212,191,0.55) 100%);
+                    box-shadow:
+                      0 0 60px  rgba(124,58,237,0.7),
+                      0 0 120px rgba(124,58,237,0.35),
+                      0 0 200px rgba(124,58,237,0.15),
+                      inset 0 0 50px rgba(255,255,255,0.08);
+                    will-change: border-radius;">
+        </div>
+        <!-- Glare highlight -->
+        <div class="absolute inset-0 flex items-start justify-center" style="padding-top: 14%;">
+          <div style="width:35%; height:14%; background:rgba(255,255,255,0.18); filter:blur(14px); border-radius:50%; transform:rotate(-20deg);"></div>
+        </div>
+
+        <!-- ── Orbiting Dot 1: teal, float-fast ── -->
+        <div class="animate-float-fast" style="position:absolute; top:-14px; right:20px; width:14px; height:14px; border-radius:50%; background:#2dd4bf; box-shadow:0 0 20px rgba(45,212,191,1), 0 0 40px rgba(45,212,191,0.5); will-change:transform;"></div>
+
+        <!-- ── Orbiting Dot 2: violet, float-reverse ── -->
+        <div class="animate-float-reverse" style="position:absolute; bottom:0px; left:-16px; width:12px; height:12px; border-radius:50%; background:#a78bfa; box-shadow:0 0 18px rgba(167,139,250,1), 0 0 36px rgba(167,139,250,0.5); will-change:transform;"></div>
+
+        <!-- ── Orbiting Dot 3: pink, float-mid ── -->
+        <div class="animate-float-mid" style="position:absolute; bottom:-18px; right:40px; width:10px; height:10px; border-radius:50%; background:#f472b6; box-shadow:0 0 16px rgba(244,114,182,1), 0 0 32px rgba(244,114,182,0.5); will-change:transform;"></div>
+
+        <!-- ── Orbiting Ring, float-x ── -->
+        <div class="animate-float-x" style="position:absolute; top:50%; right:-28px; width:22px; height:22px; border-radius:50%; border:2.5px solid #7c3aed; box-shadow:0 0 14px rgba(124,58,237,0.8); will-change:transform;"></div>
+
+        <!-- ── Floating square accent ── -->
+        <div class="animate-float-reverse" style="position:absolute; top:-28px; left:30px; width:18px; height:18px; border-radius:5px; border:2px solid rgba(45,212,191,0.6); transform:rotate(20deg); box-shadow:0 0 12px rgba(45,212,191,0.4); will-change:transform;"></div>
+      </div>
+
+      <!-- ── Extra floating particles di luar blob ── -->
+      <!-- Particle A: float-reverse, kiri atas -->
+      <div class="animate-float-reverse" style="position:absolute; top:8%; left:5%; width:10px; height:10px; border-radius:50%; background:rgba(167,139,250,0.8); box-shadow:0 0 14px rgba(167,139,250,0.7); will-change:transform;"></div>
+      <!-- Particle B: float-mid, kanan bawah -->
+      <div class="animate-float-mid" style="position:absolute; bottom:10%; right:8%; width:8px; height:8px; border-radius:50%; background:rgba(45,212,191,0.8); box-shadow:0 0 12px rgba(45,212,191,0.7); will-change:transform;"></div>
+      <!-- Particle C: float-slow, bawah tengah -->
+      <div class="animate-float-slow" style="position:absolute; bottom:5%; left:30%; width:6px; height:6px; border-radius:50%; background:rgba(244,114,182,0.9); box-shadow:0 0 10px rgba(244,114,182,0.7); will-change:transform;"></div>
+      <!-- Particle D: kecil, float-fast, atas kanan -->
+      <div class="animate-float-fast" style="position:absolute; top:12%; right:15%; width:7px; height:7px; border-radius:50%; background:rgba(124,58,237,0.9); box-shadow:0 0 12px rgba(124,58,237,0.8); will-change:transform;"></div>
+      <!-- Particle E: garis/dash, float-x -->
+      <div class="animate-float-x" style="position:absolute; top:45%; left:2%; width:30px; height:2px; border-radius:2px; background:linear-gradient(90deg,transparent,rgba(124,58,237,0.7)); will-change:transform;"></div>
+      <!-- Particle F: diamond shape -->
+      <div class="animate-float-reverse" style="position:absolute; top:20%; right:4%; width:12px; height:12px; background:rgba(99,102,241,0.5); transform:rotate(45deg); box-shadow:0 0 12px rgba(99,102,241,0.6); will-change:transform;"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-5xl mx-auto px-6 w-full">
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-8" id="hero-badge">
+        <span class="w-2 h-2 rounded-full animate-pulse" style="background:#2dd4bf; box-shadow:0 0 8px rgba(45,212,191,0.8);"></span>
+        <span class="text-sm text-slate-400 font-medium tracking-wide">Available for opportunities</span>
+      </div>
+
+      <!-- Name + Photo side by side -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-end gap-4 sm:gap-6 mb-6" id="hero-h1">
+        <!-- Photo — portrait, no box, edge fades blend white bg into dark bg -->
+        <div class="relative flex-shrink-0 animate-float-slow w-[130px] h-[180px] sm:w-[165px] sm:h-[230px]">
+          <img
+            src="hafiz.jpg"
+            alt="Hafiz Kurniawan"
+            style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center 28%;
+              border-radius: 20px;
+              display: block;
+            "
+          />
+          <!-- Soft radial vignette — fades edges naturally into dark bg, no hard frame -->
+          <div style="position:absolute;inset:0;border-radius:20px;background:radial-gradient(ellipse 85% 90% at 50% 48%, transparent 38%, rgba(10,10,15,0.55) 65%, rgba(10,10,15,0.88) 85%, #0a0a0f 100%);"></div>
+        </div>
+
+        <!-- Name -->
+        <h1 class="font-grotesk font-bold leading-none" style="letter-spacing: -0.02em;">
+          <span class="block text-slate-100" style="font-size: clamp(2.8rem, 8vw, 6rem); line-height:1.0;">Hafiz</span>
+          <span class="block text-gradient" style="font-size: clamp(2.8rem, 8vw, 6rem); line-height:1.0;">Kurniawan.</span>
+        </h1>
+      </div>
+
+      <!-- Sub -->
+      <p class="text-slate-400 leading-relaxed mb-8 max-w-xl" id="hero-sub" style="font-weight:300; font-size:1.1rem;">
+        Mahasiswa S1 Teknologi Informasi UMY yang membangun
+        <span class="text-slate-200" style="font-weight:500;">pengalaman digital yang elegan</span>
+        dan solusi berbasis teknologi yang berdampak.
+      </p>
+
+      <!-- Role tags -->
+      <div class="flex flex-wrap gap-2 mb-10" id="hero-tags">
+        <span class="tag">Web Developer</span>
+        <span class="tag">UI/UX Design</span>
+        <span class="tag">Desktop App</span>
+        <span class="tag">Creative Director</span>
+      </div>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-4" id="hero-cta">
+        <a href="#projects" class="btn-primary"><span>↓&nbsp; Lihat Karya Saya</span></a>
+        <a href="https://www.linkedin.com/in/hafiz-kurniawan-604791370/" target="_blank" rel="noopener noreferrer" class="btn-outline">LinkedIn</a>
+      </div>
+
+    </div>
+
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-float-fast opacity-50">
+      <span class="text-xs text-slate-500 tracking-widest uppercase">Scroll</span>
+      <div class="w-px h-12" style="background: linear-gradient(180deg, #7c3aed, transparent);"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!--            ABOUT & CV TIMELINE          -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="about" class="py-28 relative overflow-hidden">
+    <div class="orb w-64 h-64 opacity-10 -right-20 top-20 animate-float-slow" style="background:#7c3aed;"></div>
+
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-20 items-start">
+
+        <!-- Left: About -->
+        <div class="reveal">
+          <p class="section-label mb-4">Tentang Saya</p>
+          <h2 class="font-grotesk text-4xl md:text-5xl font-bold text-slate-100 mb-6" style="line-height:1.15; letter-spacing:-0.02em;">
+            Passion di balik<br/><span class="text-gradient">setiap baris kode.</span>
+          </h2>
+          <p class="text-slate-400 leading-relaxed mb-6">
+            Saya adalah seorang IT Developer dan designer yang bersemangat menciptakan produk digital yang tidak hanya fungsional, tetapi juga indah secara visual. Dengan latar belakang kuat dari Universitas Muhammadiyah Yogyakarta, saya menggabungkan logika teknis dengan estetika desain modern.
+          </p>
+          <p class="text-slate-400 leading-relaxed mb-8">
+            Saya percaya bahwa teknologi terbaik adalah yang tidak terlihat, namun terasa — memberikan pengalaman yang mulus, intuitif, dan menyenangkan bagi setiap pengguna.
+          </p>
+          <!-- Stats -->
+          <div class="grid grid-cols-3 gap-2 sm:gap-4">
+            <div class="glass rounded-2xl p-3 sm:p-5 text-center glass-hover">
+              <p class="font-syne text-2xl sm:text-3xl font-bold stat-val" data-target="12">0+</p>
+              <p class="text-[10px] sm:text-xs text-slate-500 mt-1 uppercase tracking-wider">Proyek Selesai</p>
+            </div>
+            <div class="glass rounded-2xl p-3 sm:p-5 text-center glass-hover">
+              <p class="font-syne text-2xl sm:text-3xl font-bold stat-val" data-target="3">0+</p>
+              <p class="text-[10px] sm:text-xs text-slate-500 mt-1 uppercase tracking-wider">Tahun Belajar</p>
+            </div>
+            <div class="glass rounded-2xl p-3 sm:p-5 text-center glass-hover">
+              <p class="font-syne text-2xl sm:text-3xl font-bold stat-val" data-target="8">0+</p>
+              <p class="text-[10px] sm:text-xs text-slate-500 mt-1 uppercase tracking-wider">Tech Stack</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Timeline -->
+        <div class="reveal">
+          <p class="section-label mb-6">Perjalanan Pendidikan</p>
+          <div class="relative pl-8">
+            <div class="timeline-line rounded-full"></div>
+
+            <!-- Item 1: Kuliah -->
+            <div class="relative mb-10">
+              <div class="absolute -left-[2.6rem] top-1 w-5 h-5 rounded-full flex items-center justify-center" style="border: 2px solid #7c3aed; background:#0a0a0f;">
+                <div class="w-2 h-2 rounded-full animate-pulse" style="background:#7c3aed;"></div>
+              </div>
+              <div class="glass rounded-2xl p-6 glass-hover">
+                <div class="flex items-start justify-between mb-2 gap-2 flex-wrap">
+                  <div>
+                    <h3 class="font-syne font-bold text-slate-100 text-base">S1 Teknologi Informasi</h3>
+                    <p class="text-sm font-medium" style="color:#a78bfa;">Universitas Muhammadiyah Yogyakarta</p>
+                  </div>
+                  <span class="text-xs text-slate-500 glass px-3 py-1 rounded-full whitespace-nowrap self-start">2024 – Sekarang</span>
+                </div>
+                <p class="text-slate-400 text-sm leading-relaxed">Fakultas Teknik — NIM 20240140024. Berfokus pada pengembangan aplikasi web, desktop, dan desain UI/UX.</p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="tag">Web Dev</span><span class="tag">Desktop App</span><span class="tag">UI/UX</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 2: Kegiatan & Kepanitiaan -->
+            <div class="relative mb-10">
+              <div class="absolute -left-[2.6rem] top-1 w-5 h-5 rounded-full flex items-center justify-center" style="border: 2px solid #2dd4bf; background:#0a0a0f;">
+                <div class="w-2 h-2 rounded-full" style="background:#2dd4bf;"></div>
+              </div>
+              <div class="glass rounded-2xl p-6 glass-hover">
+                <div class="flex items-start justify-between mb-2 gap-2 flex-wrap">
+                  <div>
+                    <h3 class="font-syne font-bold text-slate-100 text-base">Kegiatan &amp; Kepanitiaan</h3>
+                    <p class="text-sm font-medium" style="color:#2dd4bf;">Program Studi — 2024 &amp; 2026</p>
+                  </div>
+                  <span class="text-xs text-slate-500 glass px-3 py-1 rounded-full whitespace-nowrap self-start">2024 – 2026</span>
+                </div>
+                <ul class="text-slate-400 text-sm leading-relaxed space-y-1 mt-1">
+                  <li>🎯 <strong style="color:#e2e8f0;">IT Phoria Fest 2024</strong> — Anggota Panitia</li>
+                  <li>⭐ <strong style="color:#e2e8f0;">IT Specta 2026</strong> — <strong style="color:#2dd4bf;">Koordinator Divisi Multimedia</strong></li>
+                  <li>🎯 <strong style="color:#e2e8f0;">IT Specta 2025</strong> — Anggota Panitia</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Item 3: Kompetisi & Proyek -->
+            <div class="relative">
+              <div class="absolute -left-[2.6rem] top-1 w-5 h-5 rounded-full flex items-center justify-center" style="border: 2px solid #a78bfa; background:#0a0a0f;">
+                <div class="w-2 h-2 rounded-full" style="background:#a78bfa;"></div>
+              </div>
+              <div class="glass rounded-2xl p-6 glass-hover">
+                <div class="flex items-start justify-between mb-2 gap-2 flex-wrap">
+                  <div>
+                    <h3 class="font-syne font-bold text-slate-100 text-base">Kompetisi &amp; Proyek</h3>
+                    <p class="text-sm font-medium" style="color:#a78bfa;">Nasional</p>
+                  </div>
+                  <span class="text-xs text-slate-500 glass px-3 py-1 rounded-full whitespace-nowrap self-start">2025 – 2026</span>
+                </div>
+                <ul class="text-slate-400 text-sm leading-relaxed space-y-1 mt-1">
+                  <li>🏆 <strong style="color:#e2e8f0;">Find IT UGM (VALORANT)</strong> — Babak Penyisihan</li>
+                  <li>🏆 <strong style="color:#e2e8f0;">Arkavidia UI/UX</strong> — Babak Penyisihan (Nasional)</li>
+                  <li>🗺️ <strong style="color:#e2e8f0;">MAP UMYFIRST — UMY VERSE</strong> — Proyek peta Roblox untuk <em>branding kampus</em>, ditugaskan langsung oleh Admisi UMY</li>
+                  <li>📣 <strong style="color:#e2e8f0;">Seminar Nasional: Manusia vs Mesin</strong> — Peserta &amp; Panitia</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!--              SKILLS SECTION             -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="skills" class="py-28 relative overflow-hidden">
+    <div class="orb w-72 h-72 opacity-10 -left-20 bottom-10 animate-float-reverse" style="background:#2dd4bf;"></div>
+
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <p class="section-label mb-4">Tech Stack</p>
+        <h2 class="font-syne text-4xl md:text-5xl font-bold text-slate-100">
+          Keahlian &amp; <span class="text-gradient">Teknologi</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Frontend -->
+        <div class="glass rounded-3xl p-7 glass-hover reveal">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
+                 style="background:rgba(124,58,237,0.2); border:1px solid rgba(124,58,237,0.3);">🖥️</div>
+            <h3 class="font-syne font-bold text-slate-100">Frontend</h3>
+          </div>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm mb-2"><span class="text-slate-300">React / Next.js</span><span style="color:#a78bfa;" class="font-medium">90%</span></div>
+              <div class="h-1.5 rounded-full" style="background:#1c1c2a;"><div class="skill-bar-fill" style="width:90%;"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-2"><span class="text-slate-300">Tailwind CSS</span><span style="color:#a78bfa;" class="font-medium">95%</span></div>
+              <div class="h-1.5 rounded-full" style="background:#1c1c2a;"><div class="skill-bar-fill" style="width:95%;"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-2"><span class="text-slate-300">TypeScript</span><span style="color:#a78bfa;" class="font-medium">80%</span></div>
+              <div class="h-1.5 rounded-full" style="background:#1c1c2a;"><div class="skill-bar-fill" style="width:80%;"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-2"><span class="text-slate-300">Vue.js</span><span style="color:#a78bfa;" class="font-medium">72%</span></div>
+              <div class="h-1.5 rounded-full" style="background:#1c1c2a;"><div class="skill-bar-fill" style="width:72%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="glass rounded-3xl p-7 glass-hover reveal">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
+                 style="background:rgba(45,212,191,0.2); border:1px solid rgba(45,212,191,0.3);">⚙️</div>
+            <h3 class="font-syne font-bold text-slate-100">Backend</h3>
+          </div>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm mb-2"><span class="text-slate-300">Node.js / Express</span><span style="color:#2dd4bf;" class="font-medium">85%</span></div>
+              <div class="h-1.5 rounded-full" style="background:#1c1c2a;"><div class="skill-bar-fill" style="width:85%; background:linear-gradient(90deg,#2dd4bf,#06b6d4);"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-2"><span class="text-slate-300">Laravel / PHP</span><span style="color:#2dd4bf;" class="font-medium">78%</span></div>
+              <div class="h-1.5 rounded-full" style="background:#1c1c2a;"><div class="skill-bar-fill" style="width:78%; background:linear-gradient(90deg,#2dd4bf,#06b6d4);"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-2"><span class="text-slate-300">MySQL / PostgreSQL</span><span style="color:#2dd4bf;" class="font-medium">83%</span></div>
+              <div class="h-1.5 rounded-full" style="background:#1c1c2a;"><div class="skill-bar-fill" style="width:83%; background:linear-gradient(90deg,#2dd4bf,#06b6d4);"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-2"><span class="text-slate-300">REST API / GraphQL</span><span style="color:#2dd4bf;" class="font-medium">80%</span></div>
+              <div class="h-1.5 rounded-full" style="background:#1c1c2a;"><div class="skill-bar-fill" style="width:80%; background:linear-gradient(90deg,#2dd4bf,#06b6d4);"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools & Design -->
+        <div class="glass rounded-3xl p-7 glass-hover reveal">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
+                 style="background:rgba(251,191,36,0.2); border:1px solid rgba(251,191,36,0.3);">🛠️</div>
+            <h3 class="font-syne font-bold text-slate-100">Tools &amp; Design</h3>
+          </div>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm mb-2"><span class="text-slate-300">Figma / Adobe XD</span><span style="color:#fbbf24;" class="font-medium">88%</span></div>
+              <div class="h-1.5 rounded-full" style="background:#1c1c2a;"><div class="skill-bar-fill" style="width:88%; background:linear-gradient(90deg,#f59e0b,#fbbf24);"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-2"><span class="text-slate-300">Git / GitHub</span><span style="color:#fbbf24;" class="font-medium">92%</span></div>
+              <div class="h-1.5 rounded-full" style="background:#1c1c2a;"><div class="skill-bar-fill" style="width:92%; background:linear-gradient(90deg,#f59e0b,#fbbf24);"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-2"><span class="text-slate-300">Lua / Roblox Studio</span><span style="color:#fbbf24;" class="font-medium">70%</span></div>
+              <div class="h-1.5 rounded-full" style="background:#1c1c2a;"><div class="skill-bar-fill" style="width:70%; background:linear-gradient(90deg,#f59e0b,#fbbf24);"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-2"><span class="text-slate-300">Docker / CI/CD</span><span style="color:#fbbf24;" class="font-medium">65%</span></div>
+              <div class="h-1.5 rounded-full" style="background:#1c1c2a;"><div class="skill-bar-fill" style="width:65%; background:linear-gradient(90deg,#f59e0b,#fbbf24);"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tech logos row -->
+      <div class="mt-10 reveal">
+        <div class="glass rounded-2xl px-8 py-6">
+          <p class="text-center text-xs text-slate-600 uppercase tracking-widest mb-5">Teknologi yang Saya Gunakan</p>
+          <div class="flex flex-wrap items-center justify-center gap-4 md:gap-8">
+            <span class="text-slate-400 hover:text-violet-400 transition-colors text-sm font-medium cursor-default select-none">React</span>
+            <span class="text-slate-700">·</span>
+            <span class="text-slate-400 hover:text-violet-400 transition-colors text-sm font-medium cursor-default select-none">Next.js</span>
+            <span class="text-slate-700">·</span>
+            <span class="text-slate-400 hover:text-teal-400 transition-colors text-sm font-medium cursor-default select-none">Node.js</span>
+            <span class="text-slate-700">·</span>
+            <span class="text-slate-400 hover:text-violet-400 transition-colors text-sm font-medium cursor-default select-none">Laravel</span>
+            <span class="text-slate-700">·</span>
+            <span class="text-slate-400 hover:text-yellow-400 transition-colors text-sm font-medium cursor-default select-none">Lua</span>
+            <span class="text-slate-700">·</span>
+            <span class="text-slate-400 hover:text-violet-400 transition-colors text-sm font-medium cursor-default select-none">Figma</span>
+            <span class="text-slate-700">·</span>
+            <span class="text-slate-400 hover:text-teal-400 transition-colors text-sm font-medium cursor-default select-none">PostgreSQL</span>
+            <span class="text-slate-700">·</span>
+            <span class="text-slate-400 hover:text-violet-400 transition-colors text-sm font-medium cursor-default select-none">Docker</span>
+            <span class="text-slate-700">·</span>
+            <span class="text-slate-400 hover:text-yellow-400 transition-colors text-sm font-medium cursor-default select-none">TypeScript</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!--           PROJECTS BENTO BOX            -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="projects" class="py-28 relative overflow-hidden">
+    <div class="orb w-96 h-96 opacity-10 right-0 top-0 animate-float-slow" style="background:#7c3aed;"></div>
+
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <p class="section-label mb-4">Portofolio</p>
+        <h2 class="font-syne text-4xl md:text-5xl font-bold text-slate-100">Karya <span class="text-gradient">Terpilih</span></h2>
+        <p class="text-slate-400 mt-4 max-w-xl mx-auto">Setiap proyek adalah hasil dari dedikasi, kolaborasi, dan obsesi terhadap kualitas.</p>
+      </div>
+
+      <!-- Bento Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5">
+
+        <!-- Project 1: Afiyah Farmaku – Featured Large -->
+        <div class="md:col-span-2 lg:col-span-4 bento-card glass rounded-3xl overflow-hidden group reveal">
+          <div class="relative h-56 overflow-hidden" style="background:linear-gradient(135deg,#1c1c2a,#242435);">
+            <div class="absolute inset-0 opacity-70" style="background:linear-gradient(135deg,rgba(16,185,129,0.45),rgba(45,212,191,0.2));"></div>
+            <div class="absolute top-8 right-12 w-32 h-32 rounded-full animate-float-slow" style="background:rgba(16,185,129,0.4); filter:blur(8px);"></div>
+            <div class="absolute bottom-6 left-16 w-20 h-20 rounded-full animate-float-reverse" style="background:rgba(45,212,191,0.35); filter:blur(6px);"></div>
+            <div class="absolute top-6 left-8 w-10 h-10 rounded-full animate-float-fast" style="background:rgba(52,211,153,0.5); filter:blur(3px);"></div>
+            <!-- Decorative UI mockup -->
+            <div class="absolute top-1/2 left-8 -translate-y-1/2 space-y-2 opacity-20 select-none font-mono text-xs" style="color:#6ee7b7;">
+              <div>📦 Stok Obat: 142 item</div>
+              <div>💰 Penjualan Hari Ini: Rp 1.2jt</div>
+              <div>⚠️ Stok Menipis: 3 item</div>
+              <div>📊 Laba Bersih: Rp 380rb</div>
+            </div>
+            <!-- Hover overlay -->
+            <a href="https://afiyah-farmaku.onrender.com/" target="_blank" rel="noopener noreferrer"
+               class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:rgba(16,185,129,0.5); text-decoration:none;">
+              <span class="text-white text-sm glass px-5 py-2.5 rounded-full" style="border:1px solid rgba(255,255,255,0.2);">→ Buka Aplikasi</span>
+            </a>
+            <!-- Project number watermark -->
+            <div class="absolute bottom-4 right-6 font-syne text-7xl font-black opacity-10 text-white select-none">01</div>
+          </div>
+          <div class="p-7">
+            <div class="flex items-start justify-between mb-3 gap-2">
+              <h3 class="font-syne font-bold text-slate-100 text-xl">Afiyah Farmaku — Sistem Manajemen Apotek</h3>
+              <span class="text-xs glass px-3 py-1 rounded-full whitespace-nowrap" style="color:#34d399; border-color:rgba(52,211,153,0.2);">2025–2026</span>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">Aplikasi web manajemen apotek lengkap: kasir POS interaktif, manajemen stok obat, pembelian dari supplier, laporan penjualan &amp; laba-rugi, manajemen karyawan &amp; akses, hingga backup database. Deployed live di Render.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tag">JavaScript</span><span class="tag">SQLite</span><span class="tag">SPA</span><span class="tag">Render</span>
+            </div>
+            <a href="https://afiyah-farmaku.onrender.com/" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-1.5 text-xs font-medium transition-colors"
+               style="color:#34d399; text-decoration:none;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              afiyah-farmaku.onrender.com
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2: Browser Game (dari MyWorkSpace) -->
+        <div class="md:col-span-2 lg:col-span-2 bento-card glass rounded-3xl overflow-hidden group reveal">
+          <div class="relative h-44 overflow-hidden" style="background:linear-gradient(135deg,#1c1c2a,#15151f);">
+            <div class="absolute inset-0" style="background:linear-gradient(225deg,rgba(251,191,36,0.45),rgba(124,58,237,0.2));"></div>
+            <div class="absolute top-4 left-4 w-24 h-24 rounded-full animate-float-fast" style="background:rgba(251,191,36,0.25); filter:blur(8px);"></div>
+            <div class="absolute top-1/2 right-6 -translate-y-1/2 text-5xl opacity-20 select-none">🎮</div>
+            <a href="https://wpiskaa.github.io/MyWorkSpace/game.html" target="_blank" rel="noopener noreferrer"
+               class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:rgba(245,158,11,0.4); text-decoration:none;">
+              <span class="text-white text-sm glass px-4 py-2 rounded-full" style="border:1px solid rgba(255,255,255,0.2);">→ Main Sekarang</span>
+            </a>
+            <div class="absolute bottom-3 right-4 font-syne text-5xl font-black opacity-10 text-white select-none">02</div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-start justify-between mb-2 gap-2">
+              <h3 class="font-syne font-bold text-slate-100 text-lg">Browser Game — Chill 🎮</h3>
+              <span class="text-xs glass px-2 py-1 rounded-full whitespace-nowrap" style="color:#fbbf24; border-color:rgba(251,191,36,0.2);">2026</span>
+            </div>
+            <p class="text-slate-400 text-xs leading-relaxed mb-3">Mini-game interaktif yang berjalan langsung di browser — dibangun sebagai fitur dalam MyWorkSpace. Playable tanpa install, pure JavaScript.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">JavaScript</span><span class="tag">Canvas API</span><span class="tag">HTML</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: HEMOSCAN -->
+        <div class="md:col-span-1 lg:col-span-2 bento-card glass rounded-3xl overflow-hidden group reveal">
+          <div class="relative h-36 overflow-hidden" style="background:linear-gradient(135deg,#1c1c2a,#0f0f18);">
+            <div class="absolute inset-0" style="background:linear-gradient(225deg,rgba(239,68,68,0.5),rgba(124,58,237,0.2));"></div>
+            <div class="absolute bottom-2 right-6 w-16 h-16 rounded-full animate-float-slow" style="background:rgba(239,68,68,0.4); filter:blur(6px);"></div>
+            <div class="absolute top-3 left-5 text-3xl opacity-20 select-none">🩸</div>
+            <a href="https://github.com/wpiskaa/A8_HEMOSCAN" target="_blank" rel="noopener noreferrer"
+               class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:rgba(239,68,68,0.35); text-decoration:none;">
+              <span class="text-white text-sm glass px-4 py-2 rounded-full" style="border:1px solid rgba(255,255,255,0.2);">→ GitHub</span>
+            </a>
+            <div class="absolute bottom-3 right-4 font-syne text-5xl font-black opacity-10 text-white select-none">03</div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-start justify-between mb-2 gap-2">
+              <h3 class="font-syne font-bold text-slate-100 text-base">HEMOSCAN</h3>
+              <span class="text-xs glass px-2 py-1 rounded-full whitespace-nowrap" style="color:#f87171; border-color:rgba(239,68,68,0.2);">2026</span>
+            </div>
+            <p class="text-slate-400 text-xs leading-relaxed mb-3">Desktop app monitoring stok darah (C# WinForms). Fitur: import/export Excel, chart dashboard, SQL Server, installer Inno Setup. <span style="color:#a78bfa;">Tim: 2 orang.</span></p>
+            <div class="flex gap-2"><span class="tag">C#</span><span class="tag">SQL Server</span><span class="tag">WinForms</span></div>
+          </div>
+        </div>
+
+        <!-- Project 4: Photobooth (dari MyWorkSpace) -->
+        <div class="md:col-span-1 lg:col-span-2 bento-card glass rounded-3xl overflow-hidden group reveal">
+          <div class="relative h-36 overflow-hidden" style="background:linear-gradient(135deg,#1c1c2a,#0f0f18);">
+            <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(244,114,182,0.4),rgba(99,102,241,0.2));"></div>
+            <div class="absolute bottom-2 right-6 w-16 h-16 rounded-full animate-float-slow" style="background:rgba(244,114,182,0.4); filter:blur(6px);"></div>
+            <div class="absolute top-3 left-5 text-3xl opacity-20 select-none">📸</div>
+            <a href="https://wpiskaa.github.io/MyWorkSpace/photobooth.html" target="_blank" rel="noopener noreferrer"
+               class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:rgba(244,114,182,0.4); text-decoration:none;">
+              <span class="text-white text-sm glass px-4 py-2 rounded-full" style="border:1px solid rgba(255,255,255,0.2);">→ Coba Sekarang</span>
+            </a>
+            <div class="absolute bottom-3 right-4 font-syne text-5xl font-black opacity-10 text-white select-none">04</div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-start justify-between mb-2 gap-2">
+              <h3 class="font-syne font-bold text-slate-100 text-base">Photobooth In-Browser 📸</h3>
+              <span class="text-xs glass px-2 py-1 rounded-full whitespace-nowrap" style="color:#f472b6; border-color:rgba(244,114,182,0.2);">2026</span>
+            </div>
+            <p class="text-slate-400 text-xs leading-relaxed mb-3">Photobooth interaktif langsung di browser menggunakan webcam — filter real-time, frame foto, &amp; download hasil. Fitur unggulan MyWorkSpace.</p>
+            <div class="flex gap-2"><span class="tag">JavaScript</span><span class="tag">WebRTC</span><span class="tag">Canvas</span></div>
+          </div>
+        </div>
+
+        <!-- Project 5: IT Specta 2026 — Sistem Manajemen Kepanitiaan -->
+        <div class="md:col-span-1 lg:col-span-2 bento-card glass rounded-3xl overflow-hidden group reveal">
+          <div class="relative h-36 overflow-hidden" style="background:linear-gradient(135deg,#1c1c2a,#0f0f18);">
+            <div class="absolute inset-0" style="background:linear-gradient(45deg,rgba(45,212,191,0.4),rgba(124,58,237,0.2));"></div>
+            <div class="absolute top-3 right-4 w-14 h-14 rounded-full animate-float-fast" style="background:rgba(45,212,191,0.4); filter:blur(5px);"></div>
+            <div class="absolute bottom-3 left-5 text-3xl opacity-20 select-none">📋</div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:rgba(45,212,191,0.35);">
+              <span class="text-white text-sm glass px-4 py-2 rounded-full" style="border:1px solid rgba(255,255,255,0.2);">→ IT Specta 2026</span>
+            </div>
+            <div class="absolute bottom-3 right-4 font-syne text-5xl font-black opacity-10 text-white select-none">05</div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-start justify-between mb-2 gap-2">
+              <h3 class="font-syne font-bold text-slate-100 text-base">Sistem Manajemen IT Specta</h3>
+              <span class="text-xs glass px-2 py-1 rounded-full whitespace-nowrap" style="color:#2dd4bf; border-color:rgba(45,212,191,0.2);">2026</span>
+            </div>
+            <p class="text-slate-400 text-xs leading-relaxed mb-3">Sistem manajemen kepanitiaan yang dibangun saat menjabat sebagai <strong style="color:#e2e8f0;">Koordinator Divisi Multimedia</strong> di acara IT Specta 2026 — Prodi Teknologi Informasi UMY.</p>
+            <div class="flex gap-2"><span class="tag">Web App</span><span class="tag">HTML/CSS/JS</span><span class="tag">Admin Panel</span></div>
+          </div>
+        </div>
+
+        <!-- Project 6: Arkavidia UI/UX — UXVIDIA ITB -->
+        <div class="md:col-span-1 lg:col-span-2 bento-card glass rounded-3xl overflow-hidden group reveal">
+          <div class="relative h-36 overflow-hidden" style="background:linear-gradient(135deg,#1c1c2a,#15151f);">
+            <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(244,114,182,0.35),rgba(124,58,237,0.25));"></div>
+            <div class="absolute top-3 right-4 w-14 h-14 rounded-full animate-float-reverse" style="background:rgba(244,114,182,0.4); filter:blur(5px);"></div>
+            <div class="absolute bottom-3 left-6 text-3xl opacity-20 select-none">🏆</div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:rgba(244,114,182,0.3);">
+              <span class="text-white text-sm glass px-4 py-2 rounded-full" style="border:1px solid rgba(255,255,255,0.2);">→ Kompetisi</span>
+            </div>
+            <div class="absolute bottom-3 right-4 font-syne text-5xl font-black opacity-10 text-white select-none">06</div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-start justify-between mb-2 gap-2">
+              <h3 class="font-syne font-bold text-slate-100 text-base">Arkavidia — UI/UX</h3>
+              <span class="text-xs glass px-2 py-1 rounded-full whitespace-nowrap" style="color:#f472b6; border-color:rgba(244,114,182,0.2);">Feb 2025</span>
+            </div>
+            <p class="text-slate-400 text-xs leading-relaxed mb-3">Kompetisi UI/UX <strong style="color:#e2e8f0;">UXVIDIA</strong> oleh HMIF ITB — lolos babak penyisihan. Mendapat sertifikat partisipasi dari Himpunan Mahasiswa Informatika ITB.</p>
+            <div class="flex gap-2"><span class="tag">UI/UX</span><span class="tag">Figma</span><span class="tag">HMIF ITB</span></div>
+          </div>
+        </div>
+
+        <!-- Project 7: HEMO-SCAN PKM-KC -->
+        <div class="md:col-span-1 lg:col-span-2 bento-card glass rounded-3xl overflow-hidden group reveal">
+          <div class="relative h-36 overflow-hidden" style="background:linear-gradient(135deg,#1c1c2a,#0f0f18);">
+            <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(99,102,241,0.45),rgba(239,68,68,0.2));"></div>
+            <div class="absolute top-3 right-4 w-14 h-14 rounded-full animate-float-slow" style="background:rgba(99,102,241,0.5); filter:blur(5px);"></div>
+            <div class="absolute bottom-3 left-6 text-3xl opacity-20 select-none">🧬</div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:rgba(99,102,241,0.4);">
+              <span class="text-white text-sm glass px-4 py-2 rounded-full" style="border:1px solid rgba(255,255,255,0.2);">→ PKM-KC</span>
+            </div>
+            <div class="absolute bottom-3 right-4 font-syne text-5xl font-black opacity-10 text-white select-none">07</div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-start justify-between mb-2 gap-2">
+              <h3 class="font-syne font-bold text-slate-100 text-base">HEMO-SCAN</h3>
+              <span class="text-xs glass px-2 py-1 rounded-full whitespace-nowrap" style="color:#818cf8; border-color:rgba(99,102,241,0.2);">Nov 2025</span>
+            </div>
+            <p class="text-slate-400 text-xs leading-relaxed mb-3">Prototipe medis portabel pendeteksi golongan darah (ABO &amp; Rhesus) tanpa reagen, menggunakan 11-channel multi-spectral sensing. Riset <strong style="color:#e2e8f0;">PKM-KC</strong> UMY.</p>
+            <div class="flex gap-2"><span class="tag">Machine Learning</span><span class="tag">Firebase</span><span class="tag">IoT</span></div>
+          </div>
+        </div>
+
+        <!-- Project 8: Maps Creator UMY VERSE -->
+        <div class="md:col-span-1 lg:col-span-2 bento-card glass rounded-3xl overflow-hidden group reveal">
+          <div class="relative h-36 overflow-hidden" style="background:linear-gradient(135deg,#1c1c2a,#0f0f18);">
+            <div class="absolute inset-0" style="background:linear-gradient(225deg,rgba(251,191,36,0.4),rgba(124,58,237,0.2));"></div>
+            <div class="absolute top-3 right-4 w-14 h-14 rounded-full animate-float-reverse" style="background:rgba(251,191,36,0.4); filter:blur(5px);"></div>
+            <div class="absolute bottom-3 left-6 text-3xl opacity-20 select-none">🗺️</div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:rgba(251,191,36,0.3);">
+              <span class="text-white text-sm glass px-4 py-2 rounded-full" style="border:1px solid rgba(255,255,255,0.2);">→ UMY VERSE</span>
+            </div>
+            <div class="absolute bottom-3 right-4 font-syne text-5xl font-black opacity-10 text-white select-none">08</div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-start justify-between mb-2 gap-2">
+              <h3 class="font-syne font-bold text-slate-100 text-base">MAP UMYFIRST — UMY VERSE</h3>
+              <span class="text-xs glass px-2 py-1 rounded-full whitespace-nowrap" style="color:#fbbf24; border-color:rgba(251,191,36,0.2);">Jul 2025</span>
+            </div>
+            <p class="text-slate-400 text-xs leading-relaxed mb-3">Maps Creator untuk proyek Roblox <strong style="color:#e2e8f0;">MAP UMYFIRST</strong> dalam inisiatif UMY VERSE — Universitas Muhammadiyah Yogyakarta. Dipublish &amp; tersertifikasi UMY.</p>
+            <div class="flex gap-2"><span class="tag">Lua</span><span class="tag">Roblox</span><span class="tag">Publishing</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!--            CONTACT / FOOTER             -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="contact" class="py-28 relative overflow-hidden">
+    <div class="orb w-96 h-96 opacity-15 left-1/2 -translate-x-1/2 top-0 animate-pulse-glow" style="background:#7c3aed;"></div>
+
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div class="reveal">
+        <p class="section-label mb-4">Let's Connect</p>
+        <h2 class="font-syne font-extrabold leading-none mb-6" style="font-size:clamp(2.5rem,8vw,5rem);">
+          <span class="text-slate-100">Punya </span><span class="text-gradient-shimmer">Ide?</span>
+        </h2>
+        <p class="text-slate-400 text-lg max-w-xl mx-auto mb-12 leading-relaxed">
+          Saya selalu terbuka untuk kolaborasi, diskusi proyek baru, atau sekadar saling berkenalan. Mari wujudkan ide luar biasa bersama.
+        </p>
+
+        <!-- Big CTA -->
+        <a href="mailto:hafizzkurniawan19@gmail.com" class="btn-primary text-lg mb-16 inline-flex items-center gap-3">
+          <span>✉&nbsp; Kirim Pesan</span>
+        </a>
+
+        <!-- Social links -->
+        <div class="flex justify-center gap-3 mb-16 flex-wrap mt-8">
+          <a href="https://github.com/wpiskaa" target="_blank" rel="noopener noreferrer" class="glass px-5 py-3 rounded-full text-sm font-medium text-slate-300 glass-hover flex items-center gap-2" style="text-decoration:none; transition: all 0.3s;">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/hafiz-kurniawan-604791370/" target="_blank" rel="noopener noreferrer" class="glass px-5 py-3 rounded-full text-sm font-medium text-slate-300 glass-hover flex items-center gap-2" style="text-decoration:none; transition: all 0.3s;">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://www.instagram.com/hafizzkrnwn/" target="_blank" rel="noopener noreferrer" class="glass px-5 py-3 rounded-full text-sm font-medium text-slate-300 glass-hover flex items-center gap-2" style="text-decoration:none; transition: all 0.3s;">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162S8.597 18.163 12 18.163s6.162-2.759 6.162-6.162S15.403 5.838 12 5.838zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Instagram
+          </a>
+          <a href="mailto:hafizzkurniawan19@gmail.com" class="glass px-5 py-3 rounded-full text-sm font-medium text-slate-300 glass-hover flex items-center gap-2" style="text-decoration:none; transition: all 0.3s;">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+            Email
+          </a>
+        </div>
+
+        <!-- Divider -->
+        <div class="w-full h-px mb-10" style="background:linear-gradient(90deg,transparent,rgba(124,58,237,0.4),transparent);"></div>
+
+        <!-- Footer bottom -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <p class="font-grotesk text-lg font-bold text-gradient">Hafiz Kurniawan.</p>
+          <p class="text-xs text-slate-600">© 2025 Hafiz Kurniawan — Yogyakarta, Indonesia.</p>
+          <div class="flex gap-4 text-xs text-slate-600">
+            <a href="#" class="hover:text-slate-400 transition-colors" style="text-decoration:none;">Privacy</a>
+            <a href="#" class="hover:text-slate-400 transition-colors" style="text-decoration:none;">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!--              JAVASCRIPT                 -->
+  <!-- ═══════════════════════════════════════ -->
+  <script>
+    // ── Register GSAP Plugin ──
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ── Custom cursor ──
+    (function () {
+      const cursor     = document.getElementById('cursor');
+      const cursorRing = document.getElementById('cursor-ring');
+      if (!cursor || !cursorRing) return;
+
+      let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+      document.addEventListener('mousemove', e => {
+        mouseX = e.clientX; mouseY = e.clientY;
+        cursor.style.left = (mouseX - 6)  + 'px';
+        cursor.style.top  = (mouseY - 6)  + 'px';
+      });
+
+      (function animateRing() {
+        ringX += (mouseX - ringX) * 0.12;
+        ringY += (mouseY - ringY) * 0.12;
+        cursorRing.style.left = (ringX - 18) + 'px';
+        cursorRing.style.top  = (ringY - 18) + 'px';
+        requestAnimationFrame(animateRing);
+      })();
+
+      document.querySelectorAll('a, button, .bento-card, .glass-hover').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursor.style.transform = 'scale(2.5)';
+          cursorRing.style.width  = '60px'; cursorRing.style.height = '60px';
+          cursorRing.style.borderColor = 'rgba(124,58,237,0.9)';
+        });
+        el.addEventListener('mouseleave', () => {
+          cursor.style.transform = 'scale(1)';
+          cursorRing.style.width  = '36px'; cursorRing.style.height = '36px';
+          cursorRing.style.borderColor = 'rgba(124,58,237,0.6)';
+        });
+      });
+    })();
+
+    // ── Navbar scroll effect ──
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.style.cssText += '; background: rgba(10,10,15,0.9); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid rgba(124,58,237,0.1);';
+      } else {
+        navbar.style.background = '';
+        navbar.style.backdropFilter = '';
+        navbar.style.borderBottom = '';
+      }
+    }, { passive: true });
+
+    // ── Mobile menu ──
+    const menuBtn    = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+    let menuOpen = false;
+
+    function closeMenu() {
+      menuOpen = false;
+      mobileMenu.classList.replace('open','closed');
+      bar1.style.transform = ''; bar2.style.opacity = '1'; bar3.style.transform = '';
+    }
+
+    menuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      if (menuOpen) {
+        mobileMenu.classList.replace('closed','open');
+        bar1.style.transform = 'translateY(8px) rotate(45deg)';
+        bar2.style.opacity   = '0';
+        bar3.style.transform = 'translateY(-8px) rotate(-45deg)';
+      } else { closeMenu(); }
+    });
+
+    // ── Hero entrance animations ──
+    gsap.timeline({ delay: 0.2 })
+      .from('#hero-badge', { y: 30, opacity: 0, duration: 0.7, ease: 'power3.out' })
+      .from('#hero-h1',    { y: 60, opacity: 0, duration: 1,   ease: 'power3.out' }, '-=0.3')
+      .from('#hero-sub',   { y: 30, opacity: 0, duration: 0.7, ease: 'power3.out' }, '-=0.5')
+      .from('#hero-tags',  { y: 20, opacity: 0, duration: 0.5, ease: 'power3.out' }, '-=0.4')
+      .from('#hero-cta',   { y: 20, opacity: 0, duration: 0.6, ease: 'power3.out' }, '-=0.3');
+
+    // ── Scroll reveal (staggered per section) ──
+    gsap.utils.toArray('.reveal').forEach((el, i) => {
+      gsap.fromTo(el,
+        { y: 60, opacity: 0 },
+        {
+          y: 0, opacity: 1,
+          duration: 0.9,
+          ease: 'power3.out',
+          delay: (i % 3) * 0.08,
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 88%',
+            toggleActions: 'play none none none',
+          }
+        }
+      );
+    });
+
+    // ── Skill bar fill animation ──
+    document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+      const w = bar.style.width;
+      bar.style.width = '0';
+      ScrollTrigger.create({
+        trigger: bar,
+        start: 'top 92%',
+        onEnter: () => gsap.to(bar, { width: w, duration: 1.4, ease: 'power2.out' })
+      });
+    });
+
+    // ── Counter animation ──
+    document.querySelectorAll('[data-target]').forEach(el => {
+      const target = +el.dataset.target;
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 90%',
+        onEnter: () => {
+          const start = performance.now();
+          const dur   = 1800;
+          (function tick(now) {
+            const p = Math.min((now - start) / dur, 1);
+            const e = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(e * target) + '+';
+            if (p < 1) requestAnimationFrame(tick);
+          })(start);
+        }
+      });
+    });
+
+    // ── Subtle parallax on orbs ──
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      document.querySelectorAll('.orb').forEach((orb, i) => {
+        const speed = (i % 2 === 0 ? 0.04 : -0.025) + i * 0.01;
+        orb.style.transform = `translateY(${y * speed}px)`;
+      });
+    }, { passive: true });
+  </script>
+</body>
+</html>
